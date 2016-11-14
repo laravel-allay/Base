@@ -1,19 +1,19 @@
 {
-    "name": "backpack/base",
+    "name": "vice/base",
     "type": "library",
-    "description": "Laravel Backpack's base package, which offers admin authentication and a blank admin panel using AdminLTE",
+    "description": "Laravel Vice's base package, which offers admin authentication and a blank admin panel using AdminLTE",
     "keywords": [
-        "backpack",
+        "vice",
         "base"
     ],
-    "homepage": "https://github.com/laravel-backpack/base",
+    "homepage": "https://github.com/laravel-vice/Base",
     "license": "MIT",
     "authors": [
         {
-            "name": "Cristian Tabacitu",
-            "email": "hello@tabacitu.ro",
-            "homepage": "http://www.tabacitu.ro",
-            "role": "Chief Architect & Developer"
+            "name": "Zachary Schuessler",
+            "email": "zlschuessler@gmail.com",
+            "homepage": "https://getvice.com",
+            "role": "Package Maintainer"
         }
     ],
     "require": {
@@ -30,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Backpack\\Base\\": "src"
+            "Vice\\Base\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Backpack\\Base\\Test\\": "tests"
+            "Vice\\Base\\Test\\": "tests"
         }
     },
     "scripts": {
