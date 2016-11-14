@@ -11,7 +11,7 @@ Laravel Vices's central package, which includes:
 1) Run in your terminal:
 
 ``` bash
-$ composer require vice/base
+$ composer require getvice/base
 ```
 
 2) Add the service providers in config/app.php:
