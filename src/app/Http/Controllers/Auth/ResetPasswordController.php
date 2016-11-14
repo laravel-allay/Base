@@ -1,8 +1,8 @@
 <?php
 
-namespace Backpack\Base\app\Http\Controllers\Auth;
+namespace Vice\Base\app\Http\Controllers\Auth;
 
-use Backpack\Base\app\Http\Controllers\Controller;
+use Vice\Base\app\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 
@@ -35,11 +35,11 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
 
-        $this->redirectTo = config('backpack.base.route_prefix', 'admin').'/dashboard';
+        $this->redirectTo = config('vice.base.route_prefix', 'admin').'/dashboard';
     }
 
     // -------------------------------------------------------
-    // Laravel overwrites for loading backpack views
+    // Laravel overwrites for loading Vice views
     // -------------------------------------------------------
 
     /**
@@ -54,9 +54,9 @@ class ResetPasswordController extends Controller
      */
     public function showResetForm(Request $request, $token = null)
     {
-        $this->data['title'] = trans('backpack::base.reset_password'); // set the page title
+        $this->data['title'] = trans('vice::base.reset_password'); // set the page title
 
-        return view('backpack::auth.passwords.reset', $this->data)->with(
+        return view('vice::auth.passwords.reset', $this->data)->with(
             ['token' => $token, 'email' => $request->email]
         );
     }

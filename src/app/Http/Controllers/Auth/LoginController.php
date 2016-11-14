@@ -1,8 +1,8 @@
 <?php
 
-namespace Backpack\Base\app\Http\Controllers\Auth;
+namespace Vice\Base\app\Http\Controllers\Auth;
 
-use Backpack\Base\app\Http\Controllers\Controller;
+use Vice\Base\app\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -42,13 +42,13 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
 
-        $this->loginPath = config('backpack.base.route_prefix', 'admin').'/login';
-        $this->redirectTo = config('backpack.base.route_prefix', 'admin').'/dashboard';
-        $this->redirectAfterLogout = config('backpack.base.route_prefix', 'admin');
+        $this->loginPath = config('vice.base.route_prefix', 'admin').'/login';
+        $this->redirectTo = config('vice.base.route_prefix', 'admin').'/dashboard';
+        $this->redirectAfterLogout = config('vice.base.route_prefix', 'admin');
     }
 
     // -------------------------------------------------------
-    // Laravel overwrites for loading backpack views
+    // Laravel overwrites for loading vice views
     // -------------------------------------------------------
 
     /**
@@ -58,8 +58,8 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        $this->data['title'] = trans('backpack::base.login'); // set the page title
+        $this->data['title'] = trans('vice::base.login'); // set the page title
 
-        return view('backpack::auth.login', $this->data);
+        return view('vice::auth.login', $this->data);
     }
 }

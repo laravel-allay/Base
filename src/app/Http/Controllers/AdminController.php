@@ -1,6 +1,6 @@
 <?php
 
-namespace Backpack\Base\app\Http\Controllers;
+namespace Vice\Base\app\Http\Controllers;
 
 class AdminController extends Controller
 {
@@ -21,9 +21,9 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-        $this->data['title'] = trans('backpack::base.dashboard'); // set the page title
+        $this->data['title'] = trans('vice::base.dashboard'); // set the page title
 
-        return view('backpack::dashboard', $this->data);
+        return view('vice::dashboard', $this->data);
     }
 
     /**
@@ -34,6 +34,6 @@ class AdminController extends Controller
     public function redirect()
     {
         // The '/admin' route is not to be used as a page, because it breaks the menu's active state.
-        return redirect(config('backpack.base.route_prefix').'/dashboard');
+        return redirect(config('vice.base.route_prefix').'/dashboard');
     }
 }

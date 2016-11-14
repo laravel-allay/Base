@@ -3,7 +3,7 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Backpack\Base Language Lines
+    | Vice\Base Language Lines
     |--------------------------------------------------------------------------
     */
     'registration_closed'  => 'Inscription fermée.',

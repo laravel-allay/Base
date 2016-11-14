@@ -12,7 +12,7 @@ return [
     */
 
     // Project name. Shown in the breadcrumbs and a few other places.
-    'project_name' => 'Backpack',
+    'project_name' => 'Vice',
 
     // Menu logos
     'logo_lg'   => '<b>Back</b>pack',
@@ -24,7 +24,7 @@ return [
     // Developer website. Link in footer.
     'developer_link' => 'http://tabacitu.ro',
 
-    // Show powered by Laravel Backpack in the footer?
+    // Show powered by Laravel Vice in the footer?
     'show_powered_by' => true,
 
     // The AdminLTE skin. Affects menu color and primary/secondary colors used throughout the application.

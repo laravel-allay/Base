@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>{{ config('backpack.base.project_name') }} Error 408</title>
+    <title>{{ config('vice.base.project_name') }} Error 408</title>
 
     <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 

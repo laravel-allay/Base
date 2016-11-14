@@ -1,8 +1,8 @@
 <?php
 
-namespace Backpack\Base\app\Http\Controllers\Auth;
+namespace Vice\Base\app\Http\Controllers\Auth;
 
-use Backpack\Base\app\Http\Controllers\Controller;
+use Vice\Base\app\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller
@@ -33,7 +33,7 @@ class ForgotPasswordController extends Controller
     }
 
     // -------------------------------------------------------
-    // Laravel overwrites for loading backpack views
+    // Laravel overwrites for loading vice views
     // -------------------------------------------------------
 
     /**
@@ -43,8 +43,8 @@ class ForgotPasswordController extends Controller
      */
     public function showLinkRequestForm()
     {
-        $this->data['title'] = trans('backpack::base.reset_password'); // set the page title
+        $this->data['title'] = trans('vice::base.reset_password'); // set the page title
 
-        return view('backpack::auth.passwords.email', $this->data);
+        return view('vice::auth.passwords.email', $this->data);
     }
 }

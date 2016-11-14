@@ -1,6 +1,6 @@
 <?php
 
-namespace Backpack\Base\app\Http\Middleware;
+namespace Vice\Base\app\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
@@ -20,9 +20,9 @@ class Admin
     {
         if (Auth::guard($guard)->guest()) {
             if ($request->ajax() || $request->wantsJson()) {
-                return response(trans('backpack::base.unauthorized'), 401);
+                return response(trans('vice::base.unauthorized'), 401);
             } else {
-                return redirect()->guest(config('backpack.base.route_prefix', 'admin').'/login');
+                return redirect()->guest(config('vice.base.route_prefix', 'admin').'/login');
             }
         }
 
