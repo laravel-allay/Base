@@ -1,5 +1,5 @@
 {
-    "name": "vice/base",
+    "name": "getvice/base",
     "type": "library",
     "description": "Laravel Vice's base package, which offers admin authentication and a blank admin panel using AdminLTE",
     "keywords": [
