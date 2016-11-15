@@ -1,6 +1,6 @@
 <?php
 
-namespace Vice\Base\app\Http\Controllers;
+namespace Allay\Base\app\Http\Controllers;
 
 class AdminController extends Controller
 {
@@ -21,9 +21,9 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-        $this->data['title'] = trans('vice::base.dashboard'); // set the page title
+        $this->data['title'] = trans('allay::base.dashboard');
 
-        return view('vice::dashboard', $this->data);
+        return view('allay::dashboard', $this->data);
     }
 
     /**
@@ -34,6 +34,6 @@ class AdminController extends Controller
     public function redirect()
     {
         // The '/admin' route is not to be used as a page, because it breaks the menu's active state.
-        return redirect(config('vice.base.route_prefix').'/dashboard');
+        return redirect(config('allay.base.route_prefix').'/dashboard');
     }
 }

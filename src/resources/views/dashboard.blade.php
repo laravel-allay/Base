@@ -1,13 +1,13 @@
-@extends('vice::layout')
+@extends('allay::layout')
 
 @section('header')
     <section class="content-header">
       <h1>
-        {{ trans('vice::base.dashboard') }}<small>{{ trans('vice::base.first_page_you_see') }}</small>
+        {{ trans('allay::base.dashboard') }}<small>{{ trans('allay::base.first_page_you_see') }}</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ url(config('vice.base.route_prefix', 'admin')) }}">{{ config('vice.base.project_name') }}</a></li>
-        <li class="active">{{ trans('vice::base.dashboard') }}</li>
+        <li><a href="{{ url(config('allay.base.route_prefix', 'admin')) }}">{{ config('allay.base.project_name') }}</a></li>
+        <li class="active">{{ trans('allay::base.dashboard') }}</li>
       </ol>
     </section>
 @endsection
@@ -18,10 +18,10 @@
         <div class="col-md-12">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <div class="box-title">{{ trans('vice::base.login_status') }}</div>
+                    <div class="box-title">{{ trans('allay::base.login_status') }}</div>
                 </div>
 
-                <div class="box-body">{{ trans('vice::base.logged_in') }}</div>
+                <div class="box-body">{{ trans('allay::base.logged_in') }}</div>
             </div>
         </div>
     </div>

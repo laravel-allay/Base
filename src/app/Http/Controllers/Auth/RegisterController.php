@@ -1,8 +1,8 @@
 <?php
 
-namespace Vice\Base\app\Http\Controllers\Auth;
+namespace Allay\Base\app\Http\Controllers\Auth;
 
-use Vice\Base\app\Http\Controllers\Controller;
+use Allay\Base\app\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Validator;
@@ -39,7 +39,7 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
 
-        $this->redirectTo = config('vice.base.route_prefix', 'admin').'/dashboard';
+        $this->redirectTo = config('allay.base.route_prefix', 'admin').'/dashboard';
     }
 
     /**
@@ -67,7 +67,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user_model_fqn = config('vice.base.user_model_fqn');
+        $user_model_fqn = config('allay.base.user_model_fqn');
         $user = new $user_model_fqn();
 
         return $user->create([
@@ -85,13 +85,13 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         // if registration is closed, deny access
-        if (!config('vice.base.registration_open')) {
-            abort(403, trans('vice::base.registration_closed'));
+        if (!config('allay.base.registration_open')) {
+            abort(403, trans('allay::base.registration_closed'));
         }
 
-        $this->data['title'] = trans('vice::base.register'); // set the page title
+        $this->data['title'] = trans('allay::base.register'); // set the page title
 
-        return view('vice::auth.register', $this->data);
+        return view('allay::auth.register', $this->data);
     }
 
     /**
@@ -104,8 +104,8 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         // if registration is closed, deny access
-        if (!config('vice.base.registration_open')) {
-            abort(403, trans('vice::base.registration_closed'));
+        if (!config('allay.base.registration_open')) {
+            abort(403, trans('allay::base.registration_closed'));
         }
 
         $this->validator($request->all())->validate();

@@ -1,8 +1,8 @@
 <?php
 
-namespace Vice\Base\app\Http\Controllers\Auth;
+namespace Allay\Base\app\Http\Controllers\Auth;
 
-use Vice\Base\app\Http\Controllers\Controller;
+use Allay\Base\app\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -28,8 +28,10 @@ class LoginController extends Controller
      */
     // if not logged in redirect to
     protected $loginPath = 'admin/login';
+    
     // after you've logged in redirect to
     protected $redirectTo = 'admin/dashboard';
+    
     // after you've logged out redirect to
     protected $redirectAfterLogout = 'admin';
 
@@ -42,13 +44,13 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
 
-        $this->loginPath = config('vice.base.route_prefix', 'admin').'/login';
-        $this->redirectTo = config('vice.base.route_prefix', 'admin').'/dashboard';
-        $this->redirectAfterLogout = config('vice.base.route_prefix', 'admin');
+        $this->loginPath = config('allay.base.route_prefix', 'admin').'/login';
+        $this->redirectTo = config('allay.base.route_prefix', 'admin').'/dashboard';
+        $this->redirectAfterLogout = config('allay.base.route_prefix', 'admin');
     }
 
     // -------------------------------------------------------
-    // Laravel overwrites for loading vice views
+    // Laravel overwrites for loading allay views
     // -------------------------------------------------------
 
     /**
@@ -58,8 +60,8 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        $this->data['title'] = trans('vice::base.login'); // set the page title
+        $this->data['title'] = trans('allay::base.login'); // set the page title
 
-        return view('vice::auth.login', $this->data);
+        return view('allay::auth.login', $this->data);
     }
 }

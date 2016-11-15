@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <title>
-      {{ isset($title) ? $title.' :: '.config('vice.base.project_name').' Admin' : config('vice.base.project_name').' Admin' }}
+      {{ isset($title) ? $title.' :: '.config('allay.base.project_name').' Admin' : config('allay.base.project_name').' Admin' }}
     </title>
 
     @yield('before_styles')
@@ -25,10 +25,10 @@
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/') }}/dist/css/skins/_all-skins.min.css">
 
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/') }}/plugins/pace/pace.min.css">
-    <link rel="stylesheet" href="{{ asset('vendor/vice/pnotify/pnotify.custom.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/allay/pnotify/pnotify.custom.min.css') }}">
 
-    <!-- Vice Base CSS -->
-    <link rel="stylesheet" href="{{ asset('vendor/vice/vice.base.css') }}">
+    <!-- Allay Base CSS -->
+    <link rel="stylesheet" href="{{ asset('vendor/allay/allay.base.css') }}">
 
     @yield('after_styles')
 
@@ -39,7 +39,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="hold-transition {{ config('vice.base.skin') }} sidebar-mini">
+<body class="hold-transition {{ config('allay.base.skin') }} sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
 
@@ -47,27 +47,27 @@
         <!-- Logo -->
         <a href="{{ url('') }}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini">{!! config('vice.base.logo_mini') !!}</span>
-          <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg">{!! config('vice.base.logo_lg') !!}</span>
+          <span class="logo-mini">{!! config('allay.base.logo_mini') !!}</span>
+          <!-- logo for regular state and mobile deallays -->
+          <span class="logo-lg">{!! config('allay.base.logo_lg') !!}</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">{{ trans('vice::base.toggle_navigation') }}</span>
+            <span class="sr-only">{{ trans('allay::base.toggle_navigation') }}</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
 
-          @include('vice::inc.menu')
+          @include('allay::inc.menu')
         </nav>
       </header>
 
       <!-- =============================================== -->
 
-      @include('vice::inc.sidebar')
+      @include('allay::inc.sidebar')
 
       <!-- =============================================== -->
 
@@ -87,12 +87,12 @@
       <!-- /.content-wrapper -->
 
       <footer class="main-footer">
-        @if (config('vice.base.show_powered_by'))
+        @if (config('allay.base.show_powered_by'))
             <div class="pull-right hidden-xs">
-              {{ trans('vice::base.powered_by') }} <a target="_blank" href="https://getvice.com">Laravel Vice</a>
+              {{ trans('allay::base.powered_by') }} <a target="_blank" href="https://github.com/laravel-allay">Allay</a>
             </div>
         @endif
-        {{ trans('vice::base.handcrafted_by') }} <a target="_blank" href="{{ config('vice.base.developer_link') }}">{{ config('vice.base.developer_name') }}</a>.
+        {{ trans('allay::base.handcrafted_by') }} <a target="_blank" href="{{ config('allay.base.developer_link') }}">{{ config('allay.base.developer_name') }}</a>.
       </footer>
     </div>
     <!-- ./wrapper -->
@@ -132,7 +132,7 @@
         });
     </script>
 
-    @include('vice::inc.alerts')
+    @include('allay::inc.alerts')
 
     @yield('after_scripts')
 

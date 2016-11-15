@@ -1,6 +1,6 @@
 <?php
 
-namespace Vice\Base;
+namespace Allay\Base;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
@@ -24,15 +24,15 @@ class BaseServiceProvider extends ServiceProvider
     {
         // LOAD THE VIEWS
         // - first the published views (in case they have any changes)
-        $this->loadViewsFrom(resource_path('views/vendor/vice/base'), 'vice');
+        $this->loadViewsFrom(resource_path('views/vendor/allay/base'), 'allay');
         // - then the stock views that come with the package, in case a published view might be missing
-        $this->loadViewsFrom(realpath(__DIR__.'/resources/views'), 'vice');
+        $this->loadViewsFrom(realpath(__DIR__.'/resources/views'), 'allay');
 
-        $this->loadTranslationsFrom(realpath(__DIR__.'/resources/lang'), 'vice');
+        $this->loadTranslationsFrom(realpath(__DIR__.'/resources/lang'), 'allay');
 
         // use the vendor configuration file as fallback
         $this->mergeConfigFrom(
-            __DIR__.'/config/vice/base.php', 'vice.base'
+            __DIR__.'/config/allay/base.php', 'allay.base'
         );
 
         $this->setupRoutes($this->app->router);
@@ -43,13 +43,13 @@ class BaseServiceProvider extends ServiceProvider
         // publish config file
         $this->publishes([__DIR__.'/config' => config_path()], 'config');
         // publish lang files
-        $this->publishes([__DIR__.'/resources/lang' => resource_path('lang/vendor/vice')], 'lang');
+        $this->publishes([__DIR__.'/resources/lang' => resource_path('lang/vendor/allay')], 'lang');
         // publish views
-        $this->publishes([__DIR__.'/resources/views' => resource_path('views/vendor/vice/base')], 'views');
+        $this->publishes([__DIR__.'/resources/views' => resource_path('views/vendor/allay/base')], 'views');
         // publish error views
         $this->publishes([__DIR__.'/resources/error_views' => resource_path('views/errors')], 'errors');
-        // publish public Vice assets
-        $this->publishes([__DIR__.'/public' => public_path('vendor/vice')], 'public');
+        // publish public Allay assets
+        $this->publishes([__DIR__.'/public' => public_path('vendor/allay')], 'public');
         // publish public AdminLTE assets
         $this->publishes([base_path('vendor/almasaeed2010/adminlte') => public_path('vendor/adminlte')], 'adminlte');
     }
@@ -66,21 +66,21 @@ class BaseServiceProvider extends ServiceProvider
         // register the 'admin' middleware
         $router->middleware('admin', app\Http\Middleware\Admin::class);
 
-        $router->group(['namespace' => 'Vice\Base\app\Http\Controllers'], function ($router) {
+        $router->group(['namespace' => 'Allay\Base\app\Http\Controllers'], function ($router) {
             Route::group(
                 [
                     'middleware' => 'web',
-                    'prefix'     => config('vice.base.route_prefix'),
+                    'prefix'     => config('allay.base.route_prefix'),
                 ],
                 function () {
                     // if not otherwise configured, setup the auth routes
-                    if (config('vice.base.setup_auth_routes')) {
+                    if (config('allay.base.setup_auth_routes')) {
                         Route::auth();
                         Route::get('logout', 'Auth\LoginController@logout');
                     }
 
                     // if not otherwise configured, setup the dashboard routes
-                    if (config('vice.base.setup_dashboard_routes')) {
+                    if (config('allay.base.setup_dashboard_routes')) {
                         Route::get('dashboard', 'AdminController@dashboard');
                         Route::get('/', 'AdminController@redirect');
                     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Vice\Base\app\Http\Controllers;
+namespace Allay\Base\app\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;

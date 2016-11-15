@@ -3,7 +3,7 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Vice\Base Language Lines
+    | Allay\Base Language Lines
     |--------------------------------------------------------------------------
     */
     'registration_closed'  => 'Inscription fermée.',

@@ -20,12 +20,25 @@
       <!-- <li><a href="{{ url('/') }}"><i class="fa fa-home"></i> <span>Home</span></a></li> -->
 
         @if (Auth::guest())
-            <li><a href="{{ url(config('vice.base.route_prefix', 'admin').'/login') }}">{{ trans('vice::base.login') }}</a></li>
-            @if (config('vice.base.registration_open'))
-            <li><a href="{{ url(config('vice.base.route_prefix', 'admin').'/register') }}">{{ trans('vice::base.register') }}</a></li>
+            <li>
+                <a href="{{ url(config('allay.base.route_prefix', 'admin').'/login') }}">
+                    {{ trans('allay::base.login') }}
+                </a>
+            </li>
+            @if (config('allay.base.registration_open'))
+            <li>
+                <a href="{{ url(config('allay.base.route_prefix', 'admin').'/register') }}">
+                    {{ trans('allay::base.register') }}
+                </a>
+            </li>
             @endif
         @else
-            <li><a href="{{ url(config('vice.base.route_prefix', 'admin').'/logout') }}"><i class="fa fa-btn fa-sign-out"></i> {{ trans('vice::base.logout') }}</a></li>
+            <li>
+                <a href="{{ url(config('allay.base.route_prefix', 'admin').'/logout') }}">
+                    <i class="fa fa-btn fa-sign-out"></i>
+                    {{ trans('allay::base.logout') }}
+                </a>
+            </li>
         @endif
 
        <!-- ========== End of top menu right items ========== -->

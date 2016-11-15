@@ -1,8 +1,8 @@
 <?php
 
-namespace Vice\Base\app\Http\Controllers\Auth;
+namespace Allay\Base\app\Http\Controllers\Auth;
 
-use Vice\Base\app\Http\Controllers\Controller;
+use Allay\Base\app\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 
@@ -35,11 +35,11 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
 
-        $this->redirectTo = config('vice.base.route_prefix', 'admin').'/dashboard';
+        $this->redirectTo = config('allay.base.route_prefix', 'admin').'/dashboard';
     }
 
     // -------------------------------------------------------
-    // Laravel overwrites for loading Vice views
+    // Laravel overwrites for loading Allay views
     // -------------------------------------------------------
 
     /**
@@ -54,9 +54,9 @@ class ResetPasswordController extends Controller
      */
     public function showResetForm(Request $request, $token = null)
     {
-        $this->data['title'] = trans('vice::base.reset_password'); // set the page title
+        $this->data['title'] = trans('allay::base.reset_password');
 
-        return view('vice::auth.passwords.reset', $this->data)->with(
+        return view('allay::auth.passwords.reset', $this->data)->with(
             ['token' => $token, 'email' => $request->email]
         );
     }
