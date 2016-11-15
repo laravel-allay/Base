@@ -1,18 +1,18 @@
 {
-    "name": "getvice/base",
+    "name": "allay/base",
     "type": "library",
-    "description": "Laravel Vice's base package, which offers admin authentication and a blank admin panel using AdminLTE",
+    "description": "Allay's base package, which offers a bare-bones website admin package, built on Laravel and AdminLTE theme",
     "keywords": [
-        "vice",
+        "allay",
         "base"
     ],
-    "homepage": "https://github.com/laravel-vice/Base",
+    "homepage": "https://github.com/laravel-allay/Base",
     "license": "MIT",
     "authors": [
         {
             "name": "Zachary Schuessler",
             "email": "zlschuessler@gmail.com",
-            "homepage": "https://getvice.com",
+            "homepage": "",
             "role": "Package Maintainer"
         }
     ],
@@ -30,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Vice\\Base\\": "src"
+            "Allay\\Base\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Vice\\Base\\Test\\": "tests"
+            "Allay\\Base\\Test\\": "tests"
         }
     },
     "scripts": {
