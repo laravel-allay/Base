@@ -27,6 +27,5 @@ return [
     'click_here_to_reset'  => 'Cliquez ici pour Reinitialiser Votre Mot de Passe',
     'unauthorized'         => 'Non Autorisé.',
     'dashboard'            => 'Tableau de bord',
-    'handcrafted_by'       => 'Artisé par',
     'powered_by'           => 'Propulsé par',
 ];

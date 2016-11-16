@@ -92,7 +92,6 @@
               {{ trans('allay::base.powered_by') }} <a target="_blank" href="https://github.com/laravel-allay">Allay</a>
             </div>
         @endif
-        {{ trans('allay::base.handcrafted_by') }} <a target="_blank" href="{{ config('allay.base.developer_link') }}">{{ config('allay.base.developer_name') }}</a>.
       </footer>
     </div>
     <!-- ./wrapper -->

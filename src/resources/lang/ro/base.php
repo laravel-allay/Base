@@ -29,6 +29,5 @@ return [
     'click_here_to_reset'  => 'Apasa aici pentru a reseta parola',
     'unauthorized'         => 'Acces neautorizat.',
     'dashboard'            => 'Panou de administrare',
-    'handcrafted_by'       => 'Realizat de',
     'powered_by'           => 'Powered by',
 ];

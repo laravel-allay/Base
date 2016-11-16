@@ -29,6 +29,5 @@ return [
     'click_here_to_reset'  => 'Click aquí para restaurar la contraseña',
     'unauthorized'         => 'No autorizado.',
     'dashboard'            => 'Panel',
-    'handcrafted_by'       => 'Realizado por',
     'powered_by'           => 'Creado con',
 ];
