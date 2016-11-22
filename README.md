@@ -71,3 +71,6 @@ If you discover any security related issues, please email zlschuessler@gmail.com
 ## License
 
 The MIT License (MIT).
+
+See [license.md](license.md) file for more information:
+

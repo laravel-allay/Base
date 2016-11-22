@@ -1,6 +1,14 @@
 # The MIT License (MIT)
 
-Copyright (c) 2016 Cristian Tabacitu <hello@tabacitu.ro>
+1. Copyright (c) 2016 Zachary Schuessler <zlschuessler@gmail.com>
+
+2. Original work: Copyright (c) 2016 Cristian Tabacitu <hello@tabacitu.ro>
+
+This project was forked from Backpack for Laravel at the most recent commits
+which were licensed at MIT. All work on Backpack (an amazing effort!) is by
+Cristian and his associates. At time of writing, Backpack for Laravel continues
+development under a freemium model.
+
 
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal
