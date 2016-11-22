@@ -8,54 +8,74 @@ return [
     'logo_lg'   => '<b>Allay</b>',
     'logo_mini' => '<b>A</b>',
     
-    // Developer or company name. Shown in footer.
-    'developer_name' => '',
-    
-    // Developer website. Link in footer.
-    'developer_link' => '',
-    
-    // Show powered by Laravel Allay in the footer?
+    // Show powered by Laravel Allay in the footer
     'show_powered_by' => true,
     
-    // The AdminLTE skin. Affects menu color and primary/secondary colors used throughout the application.
-    'skin' => 'skin-purple',
+    /**
+     * AdminLTE Skin
+     * 
+     * Options:
+     * 
+     * 1. skin-blue
+     * 2. skin-blue-light
+     * 3. skin-yellow
+     * 4. skin-yellow-light
+     * 5. skin-green
+     * 6. skin-green-light
+     * 7. skin-purple
+     * 8. skin-purple-light
+     * 9. skin-red
+     * 10. skin-red-light
+     * 11. skin-black
+     * 12. skin-black-light
+     * 
+     * See:
+     * https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#adminlte-options
+     */
+    'skin' => 'skin-black-light',
     
-    // Options: skin-black, skin-blue, skin-purple, skin-red, skin-yellow, skin-green, skin-blue-light, skin-black-light, skin-purple-light, skin-green-light, skin-red-light, skin-yellow-light
     // Date & Datetime Format Syntax: https://github.com/jenssegers/date#usage
-    // (same as Carbon)
     'default_date_format'     => 'j F Y',
     'default_datetime_format' => 'j F Y H:i',
-    
-    /*
-      |--------------------------------------------------------------------------
-      | Registration Open
-      |--------------------------------------------------------------------------
-      |
-      | Choose wether new users are allowed to register.
-      | This will show up the Register button in the menu and allow access to the
-      | Register functions in AuthController.
-      |
+
+    /**
+     * registration_open
+     * 
+     * Choose whether users are allowed to register a new account.
+     * 
+     * This may show a Registration button in the menu and allow access to
+     * registration functions in the AuthController.
      */
     'registration_open' => (env('APP_ENV') == 'local') ? true : false,
     
-    /*
-      |--------------------------------------------------------------------------
-      | Routing
-      |--------------------------------------------------------------------------
-     */
-
-    // The prefix used in all base routes (the 'admin' in admin/dashboard)
+    // Base route prefix for all routes
     'route_prefix' => 'admin',
     
-    // Set this to false if you would like to use your own AuthController and PasswordController
-    // (you then need to setup your auth routes manually in your routes.php file)
+    /**
+     * `setup_auth_routes`
+     * 
+     * Set this false to create your own authentication extensions.
+     * You must setup routes and logic manually when set to false.
+     * 
+     * If true, the default Laravel 5 auth routes are created (register, login,
+     * etc)
+     * 
+     * In addition, a logout route is created.
+     */
     'setup_auth_routes' => true,
     
-    // Set this to false if you would like to skip adding the dashboard routes
-    // (you then need to overwrite the login route on your AuthController)
+    /**
+     * `setup_dashboard_routes`
+     * 
+     * Bypass default routes and create your own by setting this false.
+     * 
+     * Routes created:
+     * 
+     * 1 - `/`
+     * 2 - `/dashboard`
+     */
     'setup_dashboard_routes' => true,
     
-
     // Fully qualified namespace of the User model
     'user_model_fqn' => '\App\User',
 ];
