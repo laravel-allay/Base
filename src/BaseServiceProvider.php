@@ -65,7 +65,7 @@ class BaseServiceProvider extends ServiceProvider
     {
         // register the 'admin' middleware
         $router->middleware('admin', app\Http\Middleware\Admin::class);
-        $router->middleware('IsVerified', \Jrean\UserVerification\Middleware\IsVerified::class);
+        $router->middleware('UserIsVerified', \Jrean\UserVerification\Middleware\IsVerified::class);
 
         $router->group(['namespace' => 'Allay\Base\app\Http\Controllers'], function ($router) {
             Route::group(
