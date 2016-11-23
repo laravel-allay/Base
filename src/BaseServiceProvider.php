@@ -63,29 +63,42 @@ class BaseServiceProvider extends ServiceProvider
      */
     public function setupRoutes(Router $router)
     {
-        // register the 'admin' middleware
+        /**
+         * Register middleware components
+         */
+        $middleware = ['admin'];
+        // Admin
         $router->middleware('admin', app\Http\Middleware\Admin::class);
+        // User email verification
+        $router->middleware('IsVerified', \Jrean\UserVerification\Middleware\IsVerified::class);
+        if (true === config('allay.base.require_email_verification')) {
+            $middleware[] = 'IsVerified';
+        }
 
-        $router->group(['namespace' => 'Allay\Base\app\Http\Controllers'], function ($router) {
-            Route::group(
-                [
-                    'middleware' => 'web',
-                    'prefix'     => config('allay.base.route_prefix'),
-                ],
-                function () {
-                    // if not otherwise configured, setup the auth routes
-                    if (config('allay.base.setup_auth_routes')) {
-                        Route::auth();
-                        Route::get('logout', 'Auth\LoginController@logout');
-                    }
+        $router->group(
+            ['namespace' => 'Allay\Base\app\Http\Controllers'],
+            function ($router) use ($middleware) {
+                Route::group(
+                    [
+                        'middleware' => $middleware,
+                        'prefix'     => config('allay.base.route_prefix'),
+                    ],
+                    function () {
+                        // if not otherwise configured, setup the auth routes
+                        if (config('allay.base.setup_auth_routes')) {
+                            Route::auth();
+                            Route::get('logout', 'Auth\LoginController@logout');
+                        }
 
-                    // if not otherwise configured, setup the dashboard routes
-                    if (config('allay.base.setup_dashboard_routes')) {
-                        Route::get('dashboard', 'AdminController@dashboard');
-                        Route::get('/', 'AdminController@redirect');
+                        // if not otherwise configured, setup the dashboard routes
+                        if (config('allay.base.setup_dashboard_routes')) {
+                            Route::get('dashboard', 'AdminController@dashboard');
+                            Route::get('/', 'AdminController@redirect');
+                        }
                     }
-                });
-        });
+                );
+            }
+        );
     }
 
     /**

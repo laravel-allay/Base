@@ -75,6 +75,13 @@ return [
      * 2 - `/dashboard`
      */
     'setup_dashboard_routes' => true,
+
+    /**
+     * `require_email_verification`
+     *
+     *  If true requires email verification for any new users.
+     */
+    'require_email_verification' => true,
     
     // Fully qualified namespace of the User model
     'user_model_fqn' => '\App\User',
