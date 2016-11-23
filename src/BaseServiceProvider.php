@@ -103,10 +103,12 @@ class BaseServiceProvider extends ServiceProvider
         // register its dependencies
         $this->app->register(\Jenssegers\Date\DateServiceProvider::class);
         $this->app->register(\Prologue\Alerts\AlertsServiceProvider::class);
+        $this->app->register(\Jrean\UserVerification\UserVerificationServiceProvider::class);
 
         // register their aliases
         $loader = \Illuminate\Foundation\AliasLoader::getInstance();
         $loader->alias('Alert', \Prologue\Alerts\Facades\Alert::class);
         $loader->alias('Date', \Jenssegers\Date\Date::class);
+        $loader->alias('UserVerification', \Jrean\UserVerification\Facades\UserVerification::class);
     }
 }
