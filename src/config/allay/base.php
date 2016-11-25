@@ -82,6 +82,16 @@ return [
      * Restricts all access to dashboard until a user is verified, if true.
      */
     'dashboard_requires_user_verification' => true,
+
+    /**
+     * `user_verification_middleware_fqn`
+     *
+     * Fully qualified name of the middleware to use for the user verification feature.
+     * Create your own middleware to override default functionality of the Jrean package.
+     *
+     * Example: \App\Http\Middleware\YourMiddlewareOverrideClass
+     */
+    'user_verification_middleware_fqn' => '\Jrean\UserVerification\Middleware\IsVerified',
     
     // Fully qualified namespace of the User model
     'user_model_fqn' => '\App\User',
