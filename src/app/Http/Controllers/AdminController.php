@@ -12,7 +12,11 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('admin');
-        $this->middleware('IsVerified');
+
+        // Require email verification for dashboard access?
+        if (true == config('allay.base.dashboard_requires_user_verification')) {
+            $this->middleware('IsVerified');
+        }
     }
 
     /**

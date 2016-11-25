@@ -77,11 +77,11 @@ return [
     'setup_dashboard_routes' => true,
 
     /**
-     * `require_email_verification`
+     * `dashboard_requires_user_verification`
      *
-     *  If true requires email verification for any new users.
+     * Restricts all access to dashboard until a user is verified, if true.
      */
-    'require_email_verification' => true,
+    'dashboard_requires_user_verification' => true,
     
     // Fully qualified namespace of the User model
     'user_model_fqn' => '\App\User',
