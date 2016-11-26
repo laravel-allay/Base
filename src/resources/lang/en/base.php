@@ -30,4 +30,6 @@ return [
     'unauthorized'         => 'Unauthorized.',
     'dashboard'            => 'Dashboard',
     'powered_by'           => 'Powered by',
+
+
 ];

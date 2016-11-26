@@ -4,6 +4,8 @@ namespace Allay\Base\app\Http\Controllers\Auth;
 
 use Allay\Base\app\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Jrean\UserVerification\Facades\UserVerification;
+use Jrean\UserVerification\Traits\VerifiesUsers;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -23,6 +25,8 @@ class RegisterController extends Controller
     */
     use RegistersUsers;
 
+    use VerifiesUsers;
+
     /**
      * Where to redirect users after login / registration.
      *
@@ -37,8 +41,9 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest', ['except' => ['getVerification', 'getVerificationError', 'getResendVerification']]);
 
+        $this->redirectIfVerified = config('allay.base.route_prefix', 'admin').'/dashboard';
         $this->redirectTo = config('allay.base.route_prefix', 'admin').'/dashboard';
     }
 
@@ -112,6 +117,36 @@ class RegisterController extends Controller
 
         $this->guard()->login($this->create($request->all()));
 
+        $emailSubject = \Lang::get('allay::base.user_verification_mail.subject');
+        UserVerification::generate($user);
+        UserVerification::send($user, $emailSubject);
+
         return redirect($this->redirectPath());
+    }
+
+    /**
+     * Show the verification error view.
+     *
+     * @return Response
+     */
+    public function getVerificationError()
+    {
+        return view('allay::auth.user-verification');
+    }
+
+    public function getResendVerification()
+    {
+        $user = \Auth::user();
+
+        if (!$user) {
+            // TODO : redirect to proper route if no user
+            exit;
+        }
+
+        $emailSubject = \Lang::get('allay::base.user_verification_mail.subject');
+        UserVerification::generate($user);
+        UserVerification::send($user, $emailSubject);
+
+        return view('allay::auth.resend-user-verification');
     }
 }
