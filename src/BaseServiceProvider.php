@@ -67,6 +67,29 @@ class BaseServiceProvider extends ServiceProvider
         $router->middleware('admin', app\Http\Middleware\Admin::class);
         $router->middleware('IsVerified', config('allay.base.user_verification_middleware_fqn'));
 
+        // Override user verification routes to include web middleware
+        Route::group(
+            [
+                'middleware' => 'web'
+            ],
+            function () {
+                Route::get(
+                    'email-verification/error',
+                    'App\Http\Controllers\Auth\RegisterController@getVerificationError'
+                )->name('email-verification.error');
+
+                Route::get(
+                    'email-verification/check/{token}',
+                    'App\Http\Controllers\Auth\RegisterController@getVerification'
+                )->name('email-verification.check');
+
+                Route::get(
+                    'email-verification/resend',
+                    'App\Http\Controllers\Auth\RegisterController@getResendVerification'
+                )->name('email-verification.resend');
+            }
+        );
+
         $router->group(['namespace' => 'Allay\Base\app\Http\Controllers'], function ($router) {
             Route::group(
                 [
