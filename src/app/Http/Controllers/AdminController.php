@@ -14,7 +14,7 @@ class AdminController extends Controller
         $this->middleware('admin');
 
         // Require email verification for dashboard access?
-        if (true == config('allay.base.dashboard_requires_user_verification')) {
+        if (true === config('allay.base.dashboard_requires_user_verification')) {
             $this->middleware('IsVerified');
         }
     }
