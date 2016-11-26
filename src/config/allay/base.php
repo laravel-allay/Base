@@ -87,11 +87,11 @@ return [
      * `user_verification_middleware_fqn`
      *
      * Fully qualified name of the middleware to use for the user verification feature.
-     * Create your own middleware to override default functionality of the Jrean package.
+     * Create your own middleware to override default functionality of the Allay package.
      *
      * Example: \App\Http\Middleware\YourMiddlewareOverrideClass
      */
-    'user_verification_middleware_fqn' => '\Jrean\UserVerification\Middleware\IsVerified',
+    'user_verification_middleware_fqn' => '\Allay\Base\app\Http\Middleware\IsVerified',
     
     // Fully qualified namespace of the User model
     'user_model_fqn' => '\App\User',
