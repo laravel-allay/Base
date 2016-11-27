@@ -3,8 +3,28 @@
 The Allay base package provides a bare-bones administrator interface.
 
 1. User/admin interface, using AdminLTE
-2. Basic menu;
+2. Basic menu
 3. Error messages & alerts
+
+## Notice!
+
+**This package is not production ready. It does not follow a release cycle.**
+
+Ignore the 1.0 release included in this repository. All development is done on master until
+a production release is completed.
+
+*What is this?*
+
+This package is forked from the last MIT-licensed commit of 
+[Laravel Backpack](https://github.com/laravel-backpack), citing two reasons:
+
+1. Backpack went the freemium route. Allay will always be MIT.
+2. Features will (and already have) diverged from the Backpack repository.
+
+*Should I Contribute?*
+
+Yes. This package is developed full-time, let's build something great and free together.
+
 
 ## Install on Laravel 5.3
 
