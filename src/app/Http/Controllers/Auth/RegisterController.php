@@ -115,7 +115,8 @@ class RegisterController extends Controller
 
         $this->validator($request->all())->validate();
 
-        $this->guard()->login($this->create($request->all()));
+        $user = $this->create($request->all());
+        $this->guard()->login($user);
 
         $emailSubject = \Lang::get('allay::base.user_verification_mail.subject');
         UserVerification::generate($user);
