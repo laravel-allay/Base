@@ -19,7 +19,7 @@ class IsVerified
     {
         // User is not verified, but logged in
         if (!$request->user()->verified) {
-            return redirect()->route('email-verification.error');
+            return redirect()->route('email-verification.verify');
         }
 
         return $next($request);

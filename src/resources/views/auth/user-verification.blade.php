@@ -1,4 +1,4 @@
-@extends('allay::layout')
+@extends('allay::auth.layout')
 
 <!-- Main Content -->
 @section('content')

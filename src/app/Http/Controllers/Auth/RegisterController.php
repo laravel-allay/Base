@@ -41,7 +41,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => ['getVerification', 'getVerificationError', 'getResendVerification']]);
+        $this->middleware('guest', ['except' => ['getVerification', 'getVerify', 'getResendVerification']]);
 
         $this->redirectIfVerified = config('allay.base.route_prefix', 'admin').'/dashboard';
         $this->redirectTo = config('allay.base.route_prefix', 'admin').'/dashboard';
@@ -130,7 +130,7 @@ class RegisterController extends Controller
      *
      * @return Response
      */
-    public function getVerificationError()
+    public function getVerify()
     {
         return view('allay::auth.user-verification');
     }

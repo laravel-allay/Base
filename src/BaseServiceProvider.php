@@ -70,7 +70,7 @@ class BaseServiceProvider extends ServiceProvider
         $router->group(['namespace' => 'Allay\Base\app\Http\Controllers'], function ($router) {
             Route::group(
                 [
-                    'middleware' => 'web',
+                    'middleware' => ['web'],
                     'prefix'     => config('allay.base.route_prefix'),
                 ],
                 function () {
@@ -80,21 +80,24 @@ class BaseServiceProvider extends ServiceProvider
                         Route::auth();
                         Route::get('logout', 'Auth\LoginController@logout');
 
-                        // Email verification
-                        Route::get(
-                            'email-verification/error',
-                            'Auth\RegisterController@getVerificationError'
-                        )->name('email-verification.error');
+                        // Verification routes (requires login)
+                        Route::group(['middleware' => 'admin'], function() {
+                            // Email verification
+                            Route::get(
+                                'email-verification/verify',
+                                'Auth\RegisterController@getVerify'
+                            )->name('email-verification.verify');
 
-                        Route::get(
-                            'email-verification/check/{token}',
-                            'Auth\RegisterController@getVerification'
-                        )->name('email-verification.check');
+                            Route::get(
+                                'email-verification/check/{token}',
+                                'Auth\RegisterController@getVerification'
+                            )->name('email-verification.check');
 
-                        Route::get(
-                            'email-verification/resend',
-                            'Auth\RegisterController@getResendVerification'
-                        )->name('email-verification.resend');
+                            Route::get(
+                                'email-verification/resend',
+                                'Auth\RegisterController@getResendVerification'
+                            )->name('email-verification.resend');
+                        });
                     }
 
                     // if not otherwise configured, setup the dashboard routes
