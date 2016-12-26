@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a45e4ce5fa489b490568a671bc1daa83",
-    "content-hash": "51bd4c901cf7c68ad997d71d7e5edd07",
+    "hash": "a61d89dbaa1aac807867adb60d4a9b66",
+    "content-hash": "c7ce15891ae4ec1915419f8585aecf8b",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -2066,6 +2066,42 @@
                 "environment"
             ],
             "time": "2016-09-01 10:05:43"
+        },
+        {
+            "name": "zschuessler/laravel-route-to-class",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zschuessler/laravel-route-to-class.git",
+                "reference": "c0d5f477a241b3fe04a8b83ecec257339c259c53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zschuessler/laravel-route-to-class/zipball/c0d5f477a241b3fe04a8b83ecec257339c259c53",
+                "reference": "c0d5f477a241b3fe04a8b83ecec257339c259c53",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zschuessler\\RouteToClass\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Public Domain"
+            ],
+            "authors": [
+                {
+                    "name": "Zachary Schuessler",
+                    "email": "zlschuessler@gmail.com"
+                }
+            ],
+            "description": "A Laravel 5 view composer that will convert the current route to a body class. 'admin/product/5/edit' becomes 'admin-product-edit'",
+            "time": "2016-12-23 19:14:34"
         }
     ],
     "packages-dev": [

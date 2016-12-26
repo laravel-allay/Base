@@ -8,11 +8,8 @@
     <script src="{{ asset('js/vendor/jquery-3.1.1.min.js') }}"></script>
     <script src="{{ asset('js/vendor/bootstrap-3.3.7.min.js') }}"></script>
 </head>
-<body class="{{$route_body_classes}}">
+<body class="{{ Route2Class::generateClassString() }}">
 <div class="row">
-    <?php
-    //dd($route_body_classes);
-    ?>
     @yield('content')
 </div>
 </body>

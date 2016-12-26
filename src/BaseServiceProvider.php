@@ -125,11 +125,30 @@ class BaseServiceProvider extends ServiceProvider
         $this->app->register(\Jenssegers\Date\DateServiceProvider::class);
         $this->app->register(\Prologue\Alerts\AlertsServiceProvider::class);
         $this->app->register(\Jrean\UserVerification\UserVerificationServiceProvider::class);
+        $this->app->register(\Zschuessler\RouteToClass\ServiceProvider::class);
 
         // register their aliases
         $loader = \Illuminate\Foundation\AliasLoader::getInstance();
         $loader->alias('Alert', \Prologue\Alerts\Facades\Alert::class);
         $loader->alias('Date', \Jenssegers\Date\Date::class);
         $loader->alias('UserVerification', \Jrean\UserVerification\Facades\UserVerification::class);
+
+        // Merge configurations
+        $this->publishes([__DIR__.'/config/route2class.php' => config_path('route2class.php')]);
+
+        $this->mergeConfigFrom(
+            __DIR__.'/config/route2class.php', 'route2class'
+        );
+
+        // Custom merge, since `mergeConfigFrom` doesn't support nested arrays.
+        $baseGeneratorConfig = (require __DIR__.'/config/route2class.php')['generators'];
+        $appGeneratorConfig = config('route2class.generators');
+
+        if ($appGeneratorConfig
+            && true === config('route2class.use_default_generators')) {
+            $mergedGenerators = array_unique(array_merge($baseGeneratorConfig, $appGeneratorConfig));
+
+            $this->app['config']->set('route2class.generators', $mergedGenerators);
+        }
     }
 }
