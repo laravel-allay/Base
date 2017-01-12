@@ -125,5 +125,6 @@
 @include('allay::inc.alerts')
 
 @yield('after_scripts')
+@stack('before_body_end');
 </body>
 </html>
