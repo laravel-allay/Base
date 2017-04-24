@@ -23,7 +23,7 @@
         "prologue/alerts": "0.4.*",
         "jenssegers/date": "^3.2",
         "jrean/laravel-user-verification": "^3.0",
-        "zschuessler/laravel-route-to-class": "2.1.0"
+        "zschuessler/laravel-route-to-class": "2.2.0"
     },
     "require-dev": {
         "phpunit/phpunit" : "4.*",
