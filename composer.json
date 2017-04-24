@@ -17,12 +17,12 @@
         }
     ],
     "require": {
-        "illuminate/support": "~5.1",
+        "illuminate/support": "5.4.*",
         "almasaeed2010/AdminLTE" : "2.3.*",
         "laravel/framework": "5.4.*",
         "prologue/alerts": "0.4.*",
         "jenssegers/date": "^3.2",
-        "jrean/laravel-user-verification": "^3.0",
+        "jrean/laravel-user-verification": "^4.1",
         "zschuessler/laravel-route-to-class": "2.2.0"
     },
     "require-dev": {
