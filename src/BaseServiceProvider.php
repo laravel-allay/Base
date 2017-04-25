@@ -64,8 +64,8 @@ class BaseServiceProvider extends ServiceProvider
     public function setupRoutes(Router $router)
     {
         // register the 'admin' middleware
-        $router->middleware('admin', app\Http\Middleware\Admin::class);
-        $router->middleware('IsVerified', config('allay.base.user_verification_middleware_fqn'));
+        $router->aliasMiddleware('admin', app\Http\Middleware\Admin::class);
+        $router->aliasMiddleware('IsVerified', config('allay.base.user_verification_middleware_fqn'));
 
         $router->group(['namespace' => 'Allay\Base\app\Http\Controllers'], function ($router) {
             Route::group(
